@@ -1,0 +1,4 @@
+useDynLib(OneArmPhaseTwoStudy)
+exportPattern("^[[:alpha:]]+")
+import( Rcpp )
+import(methods)
