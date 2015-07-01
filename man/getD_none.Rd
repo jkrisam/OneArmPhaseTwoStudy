@@ -20,11 +20,13 @@ Calculates the conditional error for all possible outcomes at the interim analys
 using no "rest alpha" spending (difference between nominal alpha level and actual alpha level).
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 
 ce_toOne <- getD_none(design)
 ce_toOne
+}
 }
 \references{
 Englert S., Kieser M. (2012): Adaptive designs for single-arm phase II trials in oncology. Pharmaceutical Statistics 11,241-249.

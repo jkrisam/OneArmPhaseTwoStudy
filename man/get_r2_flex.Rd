@@ -16,6 +16,7 @@ get_r2_flex(ce, p0, n2)
 Calculates the number of responses needed for the second stage of a Simon's two-stage design if the flexible extension is chosen in the planning phase.
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 #Get the conditional error values using proportionally "rest"-alpha spending.
@@ -31,6 +32,7 @@ r2
 n2 <- n2 + 10
 r2 <- get_r2_flex(ce, design$p0, n2)
 r2
+}
 }
 \seealso{
 \code{\link{getD_proportionally}}, \code{\link{getD_equally}}, \code{\link{getD_distributeToOne}}, \code{\link{getD_none}}

@@ -1,4 +1,7 @@
 useDynLib(OneArmPhaseTwoStudy)
-exportPattern("^[[:alpha:]]+")
+#exportPattern("^[[:alpha:]]+")
+exportPattern("^[^\\.]")
 import( Rcpp )
 import(methods)
+import(stats)
+import(graphics)

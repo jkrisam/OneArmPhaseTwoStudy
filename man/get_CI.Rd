@@ -22,6 +22,7 @@ get_CI(k, r1, n1, n, alpha = 0.05, precision = 4)
 Calculates the two sided 1-2*alpha confidence interval based on the work from Koyama and Chen.
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 
@@ -29,6 +30,7 @@ design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 k = 9
 
 ci <- get_CI(k, design$r1, design$n1, design$n)
+}
 }
 \references{
 Koyama T and Chen H (2008): Proper inference from Simon's two-stage designs. Statistics in Medicine, 27(16):3145-3154.

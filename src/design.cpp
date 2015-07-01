@@ -24,12 +24,12 @@ long double Design::logFact(int n)
     {
         if(n <= 0)
         {
-            logFacLookupTable->insert(std::pair<int,long double>(n,log(1)));
+            logFacLookupTable->insert(std::pair<int,long double>(n,log((float)1)));
         }
         long double sum = 0;
         int i;
         for(i=n; i>1;i--)
-            sum = sum + log(i);
+            sum = sum + log((float)i);
         logFacLookupTable->insert(std::pair<int,long double>(n,sum));
         return sum;
     }

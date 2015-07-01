@@ -85,7 +85,7 @@ SEXP Result::get_R_Representation()
                       _["Type"] = CharacterVector::create(*name));
 
   rRepres.push_back(solution, "Solution");
-  
+  // If curtailment is used return all available information regarding (non-)stochastic curtailment.
   if(useCurtailment)
   {
     std::map<int, Result::Curtailment>::iterator it = curtailmentResults->begin();

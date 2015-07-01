@@ -23,6 +23,7 @@ getSolutions(simon = setupSimon(), useCurtailment = FALSE,
 getSolutions uses a "simon"-object to calculate two-stage designs as they were described by Simon.
 }
 \examples{
+\dontrun{
 # Example 1: Using the default values
 designs <- getSolutions()
 designs <- designs$Solutions
@@ -32,7 +33,7 @@ designs
 simon <- setupSimon(alpha = 0.1, beta = 0.2, p0 = 0.3, p1 = 0.5)
 designs <- getSolutions(simon)$Solutions
 designs
-\dontrun{
+
 # Esample 3: Calculating designs and simulating the influence of
 # stochastic curtailment for each design.
 simon <- setupSimon(alpha = 0.1, beta = 0.2, p0 = 0.3, p1 = 0.5)

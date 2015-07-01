@@ -20,6 +20,7 @@ setSimonParams(s, alpha = 0.05, beta = 0.05, p0 = 0.1, p1 = 0.3)
 Sets the parameters for a given "simon"-object.
 }
 \examples{
+\dontrun{
 #Create "simon"-object.
 simon <- setupSimon()
 #Change parameters.
@@ -27,6 +28,7 @@ setSimonParams(simon, alpha = 0.1, beta = 0.2, p0 = 0.25, p1 = 0.45)
 #Calculate designs for the given "simon"-object.
 designs <- getSolutions(simon)$Solutions
 designs
+}
 }
 \seealso{
 \code{\link{setupSimon}}

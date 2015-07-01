@@ -24,9 +24,11 @@ getCP_simon(k, numPat, r1, n1, r, n, p1)
 Returns the conditional power when "k" responses where observed out of "numPat" Patients for the given Simon's tow stage design.
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 #Assume 3 out of 20 patients had a response.
 getCP_simon(3,20,design$r1, design$n1, design$r, design$n, design$p1)
+}
 }
 

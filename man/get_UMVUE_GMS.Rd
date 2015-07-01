@@ -19,6 +19,7 @@ Calculates the "uniformly minimal variance unbiased estimator" (UMVUE) for the t
 based on the approach of Grishick, Mosteller and Savage.
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 
@@ -26,6 +27,7 @@ design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 k = 9
 
 umvue <- get_UMVUE_GMS(k, design$r1, design$n1, design$n)
+}
 }
 \references{
 Girshick MA, Mosteller F, and Savage LJ (1946): Unbiased estimates for certain binomial sampling problems with applications. Annals of Mathematical Statistics, 17(1):13-23.

@@ -35,6 +35,7 @@ getCP(n2, p1, design, k, mode = 0, alpha = 0.05)
 Calculates the conditional power for a given Simon's two-stage design in the interim analysis if the number of patients which should be enrolled in the second stage is altert to "n2".
 }
 \examples{
+\dontrun{
 #Calculate a Simon's two-stage design
 design <- getSolutions()$Solutions[3,] #minimax-design for the default values.
 
@@ -61,6 +62,7 @@ cp <- getCP(n2, design$p1, design, k, mode = 1, alpha = 0.05)
 }
 
 n2
+}
 }
 \references{
 Englert S., Kieser M. (2012): Adaptive designs for single-arm phase II trials in oncology. Pharmaceutical Statistics 11,241-249.

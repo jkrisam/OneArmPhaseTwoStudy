@@ -3,10 +3,8 @@
 
 #include <map>
 #include <vector>
-#include <tr1/tuple>
 #include <math.h>
 
-using namespace std::tr1;
 
 //Base class for the implemented design types (simon's two-stage design, subset design)
 class Design
@@ -35,13 +33,13 @@ public:
 
     Design();
     ~Design();
-    //Sets the maximal type I error rate.
+    // Sets the maximal type I error rate.
     virtual void setAlpha(double a);
-    //Sets the maximal type II error rate.
+    // Sets the maximal type II error rate.
     virtual void setBeta(double b);
-    //Sets the response probability under the null hypothesis.
+    // Sets the response probability under the null hypothesis.
     virtual void setP0(double p0);
-    //Sets the response probability under the alternative hypothesis.
+    // Sets the response probability under the alternative hypothesis.
     virtual void setP1(double p1);
 
 protected:
@@ -50,7 +48,8 @@ protected:
     double alpha, beta, p0, p1;
     std::map<int,long double> *logFacLookupTable;
     std::map<BinomKey, long double> *binLookupTable;
-
+    
+    // Calculates the factorial of n.
     virtual long double logFact(int n);
     virtual long double binomKoeff(int n, int k);
     virtual long double bin(int n, int r, long double p);

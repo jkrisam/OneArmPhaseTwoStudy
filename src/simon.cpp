@@ -94,12 +94,13 @@ long double SimonDesign::aproximateMaxN()
 {
     long double p1c;
     int minn1;
-
     //get minimal n1
-    if(beta == 1 -p1)
+    //if(beta == (double)(1.0L -p1))
+    if(std::abs(beta - (1.0L -p1)) < 0.0001)
     {
         minn1=2;
         p1c = p1 - 0.025;
+        //p1c = p1;
     }
     else
     {
@@ -124,8 +125,10 @@ long double SimonDesign::aproximateMaxNInternal(long double alpha, long double b
         {
             a= this->calcAlpha(n1,0,maxn,r,p0);
             b= this->calcBeta(n1,0,maxn,r,p1);
-
-            if( (a<alpha)&& (b<beta))
+            if(maxn < 50){
+            }
+            
+            if( (a<alpha) && (b<beta))
             {
                 maxn += 9;
                 stop = true;
@@ -218,6 +221,7 @@ void SimonDesign::calculateStudySolutions()
     this->setAdmissible(allResults);
 }
 
+// This function is used in "setAdmissible" to identify admissible designs.
 double SimonDesign::calculateIntersection(double slope1, double yIntercept1, double slope2, double yIntercept2)
 {
     double slopeDiff, yInterceptDiff;
@@ -230,7 +234,11 @@ double SimonDesign::calculateIntersection(double slope1, double yIntercept1, dou
 
 void SimonDesign::setAdmissible(std::vector<Result *> *results)
 {
-  if(results->size() > 0)
+  if(results->size() == 1)
+  {
+    results->at(miniMaxPos)->setAdmissible(0,1,"MiniMax");
+  }
+  else if(results->size() > 0)
   {
     int i = results->size()-1, admissiblePos = results->size()-1, currentAdmissiblePos = 0;
     double tmpX, oldX =0, x=1;
@@ -325,7 +333,7 @@ Result::Curtailment SimonDesign::calcSCIntern(int resID, double cut, int reps)
     }
 
 
-    // Start simulations to estimate the effect of (non-)stochastic curtailment
+    // Start simulations to estimate the effect of (non-)stochastic curtailment.
     int type1 = 0, type2 = 0;
     double pet_sc = 0, e1, e2;
     int w, i1, i2, j1, j2,count1, count2;
@@ -372,7 +380,7 @@ Result::Curtailment SimonDesign::calcSCIntern(int resID, double cut, int reps)
            }
         }
     }
-    //Analyse the simulation results
+    //Analyse the simulation results.
     float freps = (float)reps;
 
     Result::Curtailment curResult;

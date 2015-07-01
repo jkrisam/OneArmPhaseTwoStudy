@@ -21,7 +21,9 @@ getCE(design, k)
 Calculates the conditional error at the interim analysis for a given Simon's design with "k" responses.
 }
 \examples{
+\dontrun{
 design <- getSolutions()$Solutions[1,]
 conditional_error <- getCE(design, 4)
+}
 }
 

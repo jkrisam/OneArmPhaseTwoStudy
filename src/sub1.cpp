@@ -97,7 +97,7 @@ long double Sub1Design::multinomial(int x1, int x2, int n, long double p1, long 
 }
 
 // Based on formula 4.39 from "Kunz C (2011) To-Stage Designs for Phase II Trials with One or Two Endpoints. 
-// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls_universitaet"
+// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls-Universitaet"
 long double Sub1Design::multinomialTest(int r1, int r, int s, int n1, int n, long double p1, long double p2)
 {
   if(p1 < p2)
@@ -197,7 +197,7 @@ long double Sub1Design::aproximateMaxNInternal(long double alpha, long double be
 }
 
 // Based on formula 4.11 from "Kunz C (2011) To-Stage Designs for Phase II Trials with One or Two Endpoints. 
-// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls_universitaet"
+// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls-Universitaet"
 long double Sub1Design::calcAlpha(int n1, int r1, int n, int r, int s, long double pc0, long double pt0)
 {
   if(pc0 < pt0)
@@ -254,7 +254,7 @@ long double Sub1Design::calcAlpha(int n1, int r1, int n, int r, int s, long doub
 }
 
 // Based on formula 4.12 from "Kunz C (2011) To-Stage Designs for Phase II Trials with One or Two Endpoints. 
-// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls_universitaet"
+// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls-Universitaet"
 long double Sub1Design::calcBeta(int n1, int r1, int n, int r, int s, long double pc1, long double pt1)
 {
   if(pc1 < pt1)
@@ -381,11 +381,11 @@ bool Sub1Design::getDesign(int r1, int n1, int r, int s, int n, bool skipN1)
         return false;
 }
 
-void Sub1Design::calculateStudySolutions(bool skipS, bool skipR, bool skipN1, int lowerBoader, int upperBoader)
+void Sub1Design::calculateStudySolutions(bool skipS, bool skipR, bool skipN1, int lowerBorder, int upperBorder)
 {
   if(pc0 != 0 && pt0 != 0 && pc1 != 0 && pt1 != 0 && alpha != 0 && beta != 0)
   {
-    if((maxn == 0) & (upperBoader == 0))
+    if((maxn == 0) & (upperBorder == 0))
         maxn = this->aproximateMaxN();
 
     allSub1Results->clear();
@@ -397,15 +397,15 @@ void Sub1Design::calculateStudySolutions(bool skipS, bool skipR, bool skipN1, in
     minMaxFound = false;
     
     int minn1 = beta != (1-pc1) ? (ceil( log(beta) / log(1-pc1) )) : 2;
-    int minn = lowerBoader == 0 ? (minn1 + 1) : lowerBoader;
-    int local_maxN = (upperBoader == 0) ? maxn : upperBoader;
+    int minn = lowerBorder == 0 ? (minn1 + 1) : lowerBorder;
+    int local_maxN = (upperBorder == 0) ? maxn : upperBorder;
 
     enCurrent = 100000000000;
     int n, n1, r1, r, s;
     int  r1Max = 0;
 
-    // "r1" should not be skipped if "lowerBoader" = "upperBoader" therfore "firstDesignFound" is set to true in this case.
-    firstDesignFound = (lowerBoader == upperBoader);
+    // "r1" should not be skipped if "lowerBorder" = "upperBorder" therefore "firstDesignFound" is set to true in this case.
+    firstDesignFound = (lowerBorder == upperBorder);
 
     for(n = minn; n <= local_maxN; n++)
     {
@@ -505,7 +505,7 @@ long double Sub1Design::get_p_exact(int t, int u, int r1, int n1, int n, long do
 }
 
 // Based on formula 4.37 from "Kunz C (2011) To-Stage Designs for Phase II Trials with One or Two Endpoints. 
-// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls_universitaet"
+// PH.D. thesis, Medical Faculty of Heidelberg, Rupechts-Karls-Universitaet"
 long double Sub1Design::get_conditionalPower(int t, int u, int enrolled, int r1, int n1, int r, int s, int n, long double pc1, long double pt1)
 {
     long double cp;
@@ -846,7 +846,7 @@ void Sub1Design::setAdmissible(std::vector<ResultSub1 *> *results)
                 }
             }
         }
-        //Enter identified admissible design
+        //Enter identified admissible design.
         if(admissiblePos == optimalPos)
         {
             results->at(admissiblePos)->setAdmissible(oldX,x,"Optimal");
@@ -860,7 +860,7 @@ void Sub1Design::setAdmissible(std::vector<ResultSub1 *> *results)
         admissiblePos = currentAdmissiblePos;
     }
 
-    //last found admissible design should allways be the minimax design
+    //Last found admissible design should allways be the minimax design.
     results->at(miniMaxPos)->setAdmissible(oldX,1,"MiniMax");
   }
 }

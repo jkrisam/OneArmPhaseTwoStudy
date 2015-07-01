@@ -18,10 +18,12 @@ setupSimon(alpha = 0.05, beta = 0.05, p0 = 0.1, p1 = 0.3)
 Creates a "simon"-object which can be used in the function \code{\link{getSolutions}} to identify possible designs.
 }
 \examples{
+\dontrun{
 #Create a "simon"-object
 simon <- setupSimon()
 #Calculate designs for the given "simon"-object.
 designs <- getSolutions(simon)$Solutions
 designs
+}
 }
 
