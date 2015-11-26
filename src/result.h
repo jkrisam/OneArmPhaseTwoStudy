@@ -36,6 +36,58 @@ public:
         float beta_upper;
         std::vector<float*> *stoppingRulesNSC;
         
+        Curtailment(const Curtailment& other){
+          
+          
+          cut = other.cut;
+          en_sc = other.en_sc;
+          pet_sc = other.pet_sc;
+          type1_errorRate = other.type1_errorRate;
+          type2_errorRate = other.type2_errorRate;
+          en_lower = other.en_lower;
+          en_upper = other.en_upper;
+          pet_lower = other.pet_lower;
+          pet_upper = other.pet_upper;
+          alpha_lower = other.alpha_lower;
+          alpha_upper = other.alpha_upper;
+          beta_lower = other.beta_lower;
+          beta_upper = other.beta_upper;
+          
+          stoppingRulesNSC = new std::vector<float*>();
+          for(unsigned int i = 0; i < other.stoppingRulesNSC->size(); i++){
+            float *entry = new float[3];
+            memcpy(entry, other.stoppingRulesNSC->at(i),3*sizeof(float));
+            stoppingRulesNSC->push_back(entry);
+          }
+        }
+        
+        Curtailment& operator= (const Curtailment& other){
+          if(this != &other){
+            
+            cut = other.cut;
+            en_sc = other.en_sc;
+            pet_sc = other.pet_sc;
+            type1_errorRate = other.type1_errorRate;
+            type2_errorRate = other.type2_errorRate;
+            en_lower = other.en_lower;
+            en_upper = other.en_upper;
+            pet_lower = other.pet_lower;
+            pet_upper = other.pet_upper;
+            alpha_lower = other.alpha_lower;
+            alpha_upper = other.alpha_upper;
+            beta_lower = other.beta_lower;
+            beta_upper = other.beta_upper;
+            
+            stoppingRulesNSC = new std::vector<float*>();
+            for(unsigned int i = 0; i < other.stoppingRulesNSC->size(); i++){
+              float *entry = new float[3];
+              memcpy(entry, other.stoppingRulesNSC->at(i),3*sizeof(float));
+              stoppingRulesNSC->push_back(entry);
+            }
+          }
+          return *this;
+        }
+        
         Curtailment(){
           stoppingRulesNSC = NULL;
         }

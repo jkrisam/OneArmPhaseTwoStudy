@@ -53,6 +53,42 @@ public:
         float type2_errorRate;
 
         std::vector<StoppingRule_SubD1> *stoppingRulesNSC;
+        
+        Curtailment_SubD1(const Curtailment_SubD1& other){
+          
+          cut = other.cut;
+          en_sc = other.en_sc;
+          pet_sc = other.pet_sc;
+          type1_errorRate = other.type1_errorRate;
+          type2_errorRate = other.type2_errorRate;
+          
+          stoppingRulesNSC = new std::vector<StoppingRule_SubD1>();
+          *stoppingRulesNSC = *(other.stoppingRulesNSC);
+        }
+        
+        Curtailment_SubD1& operator= (const Curtailment_SubD1& other){
+          if(this != &other){
+            
+            cut = other.cut;
+            en_sc = other.en_sc;
+            pet_sc = other.pet_sc;
+            type1_errorRate = other.type1_errorRate;
+            type2_errorRate = other.type2_errorRate;
+            
+            stoppingRulesNSC = new std::vector<StoppingRule_SubD1>();
+            *stoppingRulesNSC = *(other.stoppingRulesNSC);
+          }
+          return *this;
+        }
+        
+        Curtailment_SubD1(){
+          stoppingRulesNSC = NULL;
+        }
+        
+        ~Curtailment_SubD1(){
+          if(stoppingRulesNSC != NULL)
+            delete stoppingRulesNSC;
+        }
     };
 
     // Default constructor

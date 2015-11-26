@@ -1,4 +1,4 @@
-9bd58b136fa7a8085e11bc4e1b4b0e18 *DESCRIPTION
+d003ef482371e7c3c02d7c587cb9f276 *DESCRIPTION
 495479b5b812c9121f944f0341c9b48b *NAMESPACE
 32e615b9b788a70810e34ab7c6d9d997 *R/zzz.R
 4d3682243dd1a47a54c194607fa954f2 *man/getCE.Rd
@@ -36,9 +36,9 @@ e3d3cb360fbfdb3c6974e14eb5f09870 *src/Makevars
 2431fd57a7970371bc718930997dfb86 *src/design.cpp
 717f1c741b3418ec4acf3cf5e38a70be *src/design.h
 833471b2f98be8c129bf5989ae4f9e5c *src/result.cpp
-3f7008b79e4e80a4eeb3b7840368554c *src/result.h
+9ebdd81fef53abdf172b664b72685dc5 *src/result.h
 f617a35f3bc80a782bc24aaf0e4e66b9 *src/resultsub1.cpp
-b0492de4a71f04796a67dda6fdb6b77e *src/resultsub1.h
+253817d0eeb9bf38225c11a9fb6c3bad *src/resultsub1.h
 14ad4f8f36b0cd6d5885a38929461680 *src/simon.cpp
 1b165d21de797f757337be7ce6fe226e *src/simon.h
 d4775cd8882bbf706ea72ce7608abe98 *src/simonModule.h
