@@ -76,6 +76,8 @@ public:
     
     // Sets the maximal type I error rate.
     void setAlpha(double a);
+    // Returns the maximal type I error rate.
+    double getAlpha();
     // Set the maximal type II error rate
     void setBeta(double b);
     // Sets the probability of an event under the null hypothesis.

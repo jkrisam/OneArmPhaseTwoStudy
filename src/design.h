@@ -35,6 +35,8 @@ public:
     ~Design();
     // Sets the maximal type I error rate.
     virtual void setAlpha(double a);
+    // Returns the maximal type I error rate.
+    virtual double getAlpha();
     // Sets the maximal type II error rate.
     virtual void setBeta(double b);
     // Sets the response probability under the null hypothesis.

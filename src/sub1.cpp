@@ -37,6 +37,8 @@ Sub1Design::~Sub1Design()
 
 void Sub1Design::setAlpha(double a){ Design::setAlpha(a); } 
 
+double Sub1Design::getAlpha(){return Design::getAlpha();}
+
 void Sub1Design::setBeta(double b){ Design::setBeta(b); }
 
 void Sub1Design::setP0(double p0){ Design::setP0(p0); }

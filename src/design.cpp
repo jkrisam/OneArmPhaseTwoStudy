@@ -77,6 +77,8 @@ long double Design::binsum(int n, int r, long double p)
 
 void Design::setAlpha(double a){ alpha = a;}
 
+double Design::getAlpha(){return alpha;}
+
 void Design::setBeta(double b){ beta = b;}
 
 void Design::setP0(double p0){ this->p0 = p0;}

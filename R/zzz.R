@@ -188,6 +188,15 @@ toDataframe <-function(designObject, useCurtailment =F)
         }
       }
     }
+    if(class(designObject)[1] == "Rcpp_SimonDesign"){
+      df[,c("enP0", "enP1")] <- round(df[,c("enP0", "enP1")], digits = 2)
+      df[,c("petP0", "petP1", "Alpha", "Beta", "Admiss_Start", "Admiss_End")] <- 
+        round(df[,c("petP0", "petP1", "Alpha", "Beta", "Admiss_Start", "Admiss_End")], digits = 4)
+    }else if(class(designObject)[1] == "Rcpp_Sub1Design"){
+      df[,"enP0"] <- round(df[,"enP0"], digits = 2)
+      df[,c("petP0", "Alpha", "Beta", "Admiss_Start", "Admiss_End")] <- 
+        round(df[,c("petP0", "Alpha", "Beta", "Admiss_Start", "Admiss_End")], digits = 4)
+    }
   }
   solutionresults = list(Solutions =df, Curtailment_Results = curList);
   solutionresults
@@ -252,7 +261,9 @@ getSolutions <-function(simon = setupSimon(), useCurtailment = FALSE, curtail_Al
   }
   toDataframe(simon, useCurtailment)
 }
-
+  
+  
+  
 #' Calculates designs for a given "sub1"-object. 
 #'
 #' By iterating over all possible values for "r1", "n1", "r", "s" and "n" designs for a given "sub1"-object are found.
@@ -302,6 +313,22 @@ getSolutionsSub1 <-function(sub1 = setupSub1Design(), skipS = TRUE, skipR = TRUE
   stopifnot(class(lowerBorder) == "numeric", lowerBorder >= 0, class(upperBorder) == "numeric", upperBorder >= 0, upperBorder >= lowerBorder)
   stopifnot(class(sub1)[1] == "Rcpp_Sub1Design")
   
+  #helper function
+  ctp <- function(r1, n1, r, s, n, pc0, pt0, alpha){
+    sim <- setupSimon();
+    ep1_alpha <- sim$calcAlpha(n1, r1, n, r, pc0)
+    if(ep1_alpha <= alpha){
+      ep2_pv <-binom.test(s+1, n, pt0, alternative = "g")$p.value
+      if(ep2_pv <= alpha){
+        return(T)
+      }
+    }else{
+      return(F)
+    }
+    return(F)
+  }
+  
+  
   sub1$calculateStudySolutions(skipS, skipR, skipN1, lowerBorder, upperBorder);  
   if(useCurtailment)
   {
@@ -311,7 +338,12 @@ getSolutionsSub1 <-function(sub1 = setupSub1Design(), skipS = TRUE, skipR = TRUE
       sub1$calculateSC(i, cut, replications, curtailAll)
     }
   }
-  toDataframe(sub1, useCurtailment)
+  result <- toDataframe(sub1, useCurtailment)
+  res_sol <- result$Solutions
+  ctp_res <- mapply(ctp, r1 = res_sol$r1, n1 = res_sol$n1, r= res_sol$r, s = res_sol$s, n = res_sol$n, 
+                    pc0 = res_sol$pc0, MoreArgs = list(alpha = sub1$getAlpha()))
+  result$Solutions <- cbind(result$Solutions, ClosedTestProcedure = ctp_res)
+  result
 }
 
 #' Calculates the conditional error.
@@ -573,7 +605,7 @@ getN2 <-function(cp, p1, design, k, mode = 0, alpha = 0.05)
   dgn_names = names(design)
   stopifnot("r1" %in% dgn_names, "r" %in% dgn_names, "p0" %in% dgn_names, "n1" %in% dgn_names, "n" %in% dgn_names)
   stopifnot(class(k) == "numeric" | class(k) == "integer", k >=0)
-  stopifnot(class(mode) == "numeric", k %in% 0:3)
+  stopifnot(class(mode) == "numeric", mode %in% 0:3)
   stopifnot(class(alpha) == "numeric", alpha > 0, alpha <= 1)
   
   if(cp == 1)

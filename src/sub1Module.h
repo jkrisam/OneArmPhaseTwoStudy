@@ -9,7 +9,8 @@ RCPP_MODULE(sub1){
     .property("miniMaxPos", &Sub1Design::getMinimaxPos, "Returns the position of the minimax design under the found designs.")
     .property("optimalPos", &Sub1Design::getOptimalPos, "Returns the position of the optimal design under the found designs.")
 	  
-		.method( "setAlpha", &Sub1Design::setAlpha , "Set the maximal type I error rate" )
+		.method( "setAlpha", &Sub1Design::setAlpha , "Set the maximal type I error rate" ) 
+    .method( "getAlpha", &Sub1Design::getAlpha , "Returns the maximal type I error rate" )
   	.method( "setBeta", &Sub1Design::setBeta     , "Set the maximla type II error rate" )
     .method( "setPc0", &Sub1Design::setPc0 , "Set the response rate for an event in the subset endpoint under the null hypothesis" )
     .method( "setPt0", &Sub1Design::setPt0 , "Set the response rate for an event in the superset endpoint under the null hypothesis" )

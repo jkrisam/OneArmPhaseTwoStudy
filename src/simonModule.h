@@ -27,5 +27,6 @@ RCPP_MODULE(simon){
     .method( "calculateSC", &SimonDesign::calculateSC, "Estimates the effect of (non-)stochastic curtailment")
     .method( "getCurResultForR", &SimonDesign::getCurResultForR, "Returns the estimated effect of (non-)stochastic curtailment if it was simulated through \"calculateSC\"")
     .method( "getConditionalPower", &SimonDesign::getConditionalPower, "Returns the conditional power.")
+    .method( "calcAlpha", &SimonDesign::calcAlpha, "Returns the actual alpha level.")
 	;
 }
