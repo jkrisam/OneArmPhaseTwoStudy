@@ -1,10 +1,10 @@
 Package: OneArmPhaseTwoStudy
 Type: Package
-Title: Planing, Monitoring and Evaluating Oncological Phase 2 Studies
-Version: 0.1.6
-Date: 2016-05-23
+Title: Planning, Monitoring and Evaluating Oncological Phase 2 Studies
+Version: 1.0.0
+Date: 2017-11-02
 Author: Marius Wirths
-Maintainer: Marius Wirths <wirths@imbi.uni-heidelberg.de>
+Maintainer: Johannes Krisam <krisam@imbi.uni-heidelberg.de>
 Description: Purpose of this package is it to plan, monitor and evaluate
     oncological phase II studies. In general this kind of studies are single-arm
     trials with planned interim analysis and binary endpoint. To meet the resulting
