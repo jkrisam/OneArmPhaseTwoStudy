@@ -12,7 +12,7 @@
   for the user to access the functions of the module directly.
 }
 \references{
-  \url{http://cran.r-project.org/web/packages/Rcpp/vignettes/Rcpp-modules.pdf}
+  \url{https://CRAN.R-project.org/package=Rcpp}
 }
 \seealso{
   \code{\link{setupSub1Design}}, \code{\link{getSolutionsSub1}}
