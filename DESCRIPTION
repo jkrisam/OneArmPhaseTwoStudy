@@ -1,7 +1,7 @@
 Package: OneArmPhaseTwoStudy
 Type: Package
 Title: Planning, Monitoring and Evaluating Oncological Phase 2 Studies
-Version: 1.0.0
+Version: 1.0.1
 Date: 2017-11-02
 Author: Marius Wirths
 Maintainer: Johannes Krisam <krisam@imbi.uni-heidelberg.de>
