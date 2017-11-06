@@ -1,7 +1,6 @@
 Package: OneArmPhaseTwoStudy
 Type: Package
-Title: An {R} Package for Planning, Conducting, and Analysing Single-Arm Phase II
-Studies
+Title: Planning, Conducting, and Analysing Single-Arm Phase II Studies
 Version: 1.0.1
 Date: 2017-11-02
 Author: Marius Wirths
